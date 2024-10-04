@@ -62,7 +62,7 @@ class API {
     private async request(endpoint: string, params?: any): Promise<any> {
         const url = new URL(endpoint, this.url).toString();
         const data = JSON.stringify(params);
-        
+        //console.log("REQ DATA:", data);
         try {
             const response = await this.session.get(url, { data });
             API.raiseApiError(response.data);

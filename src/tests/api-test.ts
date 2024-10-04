@@ -7,9 +7,10 @@ const api = new API(process.env.LANDSAT_API_USERNAME!, process.env.LANDSAT_API_P
 
 const DATASETS = [
     "gls_all",
-    "landsat_tm_c1",
+    // UNAVAILABLE DATASETS
+    /*"landsat_tm_c1",
     "landsat_etm_c1",
-    "landsat_8_c1",
+    "landsat_8_c1",*/
     "landsat_tm_c2_l1",
     "landsat_tm_c2_l2",
     "landsat_etm_c2_l1",
@@ -22,7 +23,8 @@ const DATASETS = [
 const main = async () => {
     await api.login(process.env.LANDSAT_API_USERNAME!, process.env.LANDSAT_API_PASSWORD!);
     //await api.login()
-    const scenes = await api.search(DATASETS[0], undefined, undefined, undefined, undefined, '2024-01-01', '2024-01-5', undefined, 500);
+    // DATASETS 6, 5, 4 y 3 funcionan
+    const scenes = await api.search(DATASETS[3], undefined, undefined, undefined, undefined, '2024-01-01', '2024-01-5', undefined, 500);
     console.log(prettyObj(scenes));
 }
 
